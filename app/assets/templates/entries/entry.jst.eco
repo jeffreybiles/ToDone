@@ -1,0 +1,11 @@
+<span class="entry">
+<span class="delete_button">x</span>
+<span class="time"></span>
+<% if @entry.get('completed'): %>
+  <input class='is-done' type='checkbox'  checked />
+<% else: %>
+  <input class='is-done' type='checkbox'  />
+<% end %>
+<%= @entry.get('name') %>
+
+</span>
