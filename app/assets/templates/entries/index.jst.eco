@@ -7,4 +7,3 @@
 </form>
 
 <ul id="entries"></ul>
-<button id="draw">Draw Winner</button>

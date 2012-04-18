@@ -1,11 +1,5 @@
 class Raffler.Models.Entry extends Backbone.Model
 
-  win: ->
-    @set(winner: true)
-    @set(completed: true)
-    @save()
-    @trigger('highlight')
-
   toggleDone: ->
     @set(completed: !@attributes['completed'])
     @save()
