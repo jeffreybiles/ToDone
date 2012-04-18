@@ -19,15 +19,16 @@ class Raffler.Views.Entry extends Backbone.View
     @remove()
     if @model.attributes['completed']
       $('#completed-entries').append(@render().el)
+#      console.log("It's going in the wrong place!")
     else
       $('#entries').append(@render().el)
 
   toggleDone: ->
     @model.toggleDone()
 
-  showEntry: ->
-     @$('.entry').parent().toggleClass('selected')
-     @model.hit()
+#  showEntry: ->
+#     @$('.entry').parent().toggleClass('selected')
+#     @model.hit()
 
   render: ->
     $(@el).html(@template(entry: @model))

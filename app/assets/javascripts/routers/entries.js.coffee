@@ -8,9 +8,12 @@ class Raffler.Routers.Entries extends Backbone.Router
     @collection.reset($('#container').data('entries'))
 
   index: ->
-    incompleteCollection = @collection.filter((n) -> !n.get('completed'))
-    view = new Raffler.Views.EntriesIndex(collection: @collection)
-    $('#container').html(view.render().el)
+    incompleteCollection = new Raffler.Collections.Entries(@collection.filter((n) -> !n.get('completed')))
+    view = new Raffler.Views.EntriesIndex(collection: incompleteCollection)
+    completeCollection = new Raffler.Collections.Entries(@collection.filter((n) -> n.get('completed')))
+    completedView = new Raffler.Views.CompletedIndex(collection: completeCollection)
+    $('#container').html(completedView.render().el)
+    $('#container').append(view.render().el)
 
 
   show: (id) ->
