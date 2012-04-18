@@ -16,11 +16,7 @@ class Raffler.Views.EntriesIndex extends Backbone.View
 
   appendEntry: (entry) =>
     view = new Raffler.Views.Entry(model: entry)
-    console.log(entry.attributes['completed'])
-    if entry.attributes['completed']
-      @$('#completed-entries').append(view.render().el)
-    else
-      @$('#entries').append(view.render().el)
+    @$('#entries').append(view.render().el)
 
   createEntry: (event) ->
     event.preventDefault()
