@@ -5,9 +5,10 @@ class Raffler.Views.CompletedIndex extends Backbone.View
   initialize: ->
     @collection.on('reset', @render, this)
 
-  render: ->
+  render: (n = 5) ->
     $(@el).html(@template())
-    @collection.each(@appendEntry)
+    completed = @collection.last(n)
+    completed.forEach(@appendEntry)
     @
 
   appendEntry: (entry) =>
