@@ -19,6 +19,7 @@ class Raffler.Views.Entry extends Backbone.View
     @remove()
     if @model.attributes['completed']
       $('#completed-entries').append(@render().el)
+      $('#completed-entries').find('li:first-child').remove()
     else
       $('#entries').append(@render().el)
 
